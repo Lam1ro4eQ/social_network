@@ -7,16 +7,19 @@ type PropsType = {
     addNewText: (textMessage: string) => void
     addPost: () => void
     profilePage: ProfilePageType
-    
+    //newPostState: string
 }
 
 const MyPosts = (props: PropsType) => {
 
-    let newPostElement = React.createRef();
+    let newPostElement = React.createRef<HTMLTextAreaElement>();
 
-    let addNewText = (e: ChangeEvent<HTMLInputElement>) => {
-        let text = e.currentTarget.value;
-        props.addNewText(text);
+    let addNewText = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        if (e.currentTarget.value) {
+            let text = e.currentTarget.value;
+            props.addNewText(text);
+        }
+
     }
 
     let addPost = () => {
@@ -30,7 +33,7 @@ const MyPosts = (props: PropsType) => {
             My posts
             <div>
                 <div>
-                    {/*<textarea onChange={addNewText} ref={newPostElement} value={props.newPostState}/>*/}
+                    <textarea onChange={addNewText} ref={newPostElement} value={props.profilePage.newPostState}/>
                 </div>
                 <div>
                     <button onClick={addPost}>Add post</button>
