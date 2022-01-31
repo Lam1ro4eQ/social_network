@@ -2,29 +2,35 @@ import React from "react";
 import s from './Dialogs.module.css'
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
+import {MessagePageType} from "../../redux/state";
+type PropsType = {
+    messagePage: MessagePageType
+}
 
+const Dialogs = (props: PropsType) => {
 
-const Dialogs = (props: any) => {
+     let dialogsMap = props.messagePage.dialogsData.map(dialog => <DialogItem name={dialog.name} id={dialog.id}/>) //мапим данные для отрисовки
 
-    // let dialogsMap = props.state.dialogsData.map(dialog => <DialogItem name={dialog.name} id={dialog.id}/>) //мапим данные для отрисовки
-    //
-    // let messagesMap = props.state.messagesData.map(message => <Message message={message.message}/>) //мапим данные для отрисовки
-    //
-    // let newMessageElement = React.createRef();
-    // let textMessage = () => {
-    //     let text = newMessageElement.current.value;
-    //     alert(text);
-    // }
+     let messagesMap = props.messagePage.messagesData.map(message => <Message message={message.message}/>) //мапим данные для отрисовки
+
+     let newMessageElement = React.createRef<HTMLTextAreaElement>();
+     let textMessage = () => {
+         if(newMessageElement.current) {
+             let text = newMessageElement.current.value;
+             alert(text);
+         }
+
+     }
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItem}>
-                {/*{dialogsMap}*/}
+                {dialogsMap}
             </div>
             <div className={s.messages}>
                 text
-                {/*{messagesMap}*/}
-                {/*<textarea ref={newMessageElement}></textarea>*/}
-                {/*<button onClick={textMessage}>Отправить сообщение</button>*/}
+                {messagesMap}
+                <textarea ref={newMessageElement}/>
+                <button onClick={textMessage}>Отправить сообщение</button>
             </div>
 
         </div>

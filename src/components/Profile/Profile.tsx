@@ -13,8 +13,8 @@ const Profile = (props: any) => {
                 <img className={pi.bgImg} src="https://cdn.promodj.com/afs/f74a72ad339d46cd7bb803582aec8d3912:d3f046"/>
             </div>
             <ProfileInfo/>
-            <MyPost postsData={props.state.postsData}
-                    newPostState={props.state.newPostState}
+            <MyPost postsData={props.state.profilePage.postsData}
+                    newPostState={props.state.profilePage.newPostState}
                     addPost={props.addPost}
                     addNewText={props.addNewText}/>
         </div>

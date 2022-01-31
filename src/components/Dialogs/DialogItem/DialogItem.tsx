@@ -1,9 +1,13 @@
 import React from "react";
 import s from './DialogItem.module.css'
 import {NavLink} from "react-router-dom";
-import pi from "../../Profile/ProfileInfo/ProfileInfo.module.css";
 
-const DialogItem = (props: any) => {
+type PropsType = {
+    name: string
+    id: number
+}
+
+const DialogItem = (props: PropsType) => {
     return (
     <div className={s.dialogItem}>
         <div>

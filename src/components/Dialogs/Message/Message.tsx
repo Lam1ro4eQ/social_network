@@ -1,9 +1,11 @@
 import React from "react";
 import m from './Message.module.css'
-import pi from "../../Profile/ProfileInfo/ProfileInfo.module.css";
 
+type PropsType = {
+    message: string
+}
 
-const Message = (props: any) => {
+const Message = (props: PropsType) => {
     return (
         <div>
             <div className={m.message}>{props.message}</div>

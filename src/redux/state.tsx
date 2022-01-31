@@ -41,8 +41,6 @@ export type StoreType = {
     _callSubscriber: () => any
 }
 
-
-
 let store: StoreType = {
     _state: {
         profilePage: {
