@@ -13,14 +13,11 @@ const Dialogs = (props: PropsType) => {
 
      let messagesMap = props.messagePage.messagesData.map(message => <Message message={message.message}/>) //мапим данные для отрисовки
 
-     let newMessageElement = React.createRef<HTMLTextAreaElement>();
+     let newMessageElement = React.createRef<HTMLTextAreaElement>(); //ссылка для textarea
      let textMessage = () => {
-         if(newMessageElement.current) {
-             let text = newMessageElement.current.value;
-             alert(text);
-         }
+             alert(newMessageElement.current?.value);
+     } // ? - если есть
 
-     }
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItem}>
