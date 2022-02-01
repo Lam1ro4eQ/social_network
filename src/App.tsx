@@ -14,6 +14,7 @@ type PropsType = {
 
 }
 const App = (props: PropsType) => {
+    console.log(props.state.profilePage)
     return (
         <BrowserRouter>
             <div className='app-wrapper'>

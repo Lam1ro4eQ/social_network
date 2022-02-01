@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {debug} from "util";
 //import {rerenderEntiretree} from "../index";
 
 export type MessagesDataType = {
@@ -38,7 +39,7 @@ export type StoreType = {
     addPost: () => void
     addNewText: (textMessage: string) => void
     subscribe: (observer: any) => void
-    _callSubscriber: () => any
+    _callSubscriber: (state: StateType) => any
 }
 
 let store: StoreType = {
@@ -77,13 +78,13 @@ let store: StoreType = {
         };
         this._state.profilePage.postsData.push(newPost);
         this._state.profilePage.newPostState = "";
-        this._callSubscriber();
+        this._callSubscriber(this._state);
     },
 
    addNewText(textMessage: string)  {
         let newText = textMessage;
         this._state.profilePage.newPostState = newText;
-        this._callSubscriber();
+        this._callSubscriber(this._state);
     },
 
     subscribe(observer: any) {
