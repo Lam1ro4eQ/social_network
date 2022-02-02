@@ -23,7 +23,7 @@ const MyPosts = (props: PropsType) => {
         props.addPost();
     }
 
-    let postsMap = props.profilePage.postsData.map((post) => <Post message={post.message} likesCount={post.likesCount}/>) //мапим данные для отрисовки
+    let postsMap = props.profilePage.postsData.map(post => <Post message={post.message} likesCount={post.likesCount}/>) //мапим данные для отрисовки
 
     return (
         <div className={p.postsBlock}>
