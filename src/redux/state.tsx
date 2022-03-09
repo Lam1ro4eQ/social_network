@@ -71,7 +71,7 @@ let store: StoreType = {
     },
 
     addPost() {
-        let newPost = {
+        let newPost: PostsDataType = {
             id: 5,
             message: this._state.profilePage.newPostState,
             likesCount: 0
@@ -81,7 +81,7 @@ let store: StoreType = {
         this._callSubscriber(this._state);
     },
 
-   addNewText(textMessage: string)  {
+    addNewText(textMessage: string) {
         let newText = textMessage;
         this._state.profilePage.newPostState = newText;
         this._callSubscriber(this._state);
@@ -91,9 +91,14 @@ let store: StoreType = {
         this._callSubscriber = observer;
     },
 
-    _callSubscriber() {console.log('State changet')}
-}
+    _callSubscriber() {
+        console.log('State changet')
+    },
 
+    dispatch(action) {
+        console.log(1)
+    }
+}
 
 
 export default store
