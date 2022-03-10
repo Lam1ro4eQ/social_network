@@ -81,8 +81,8 @@ let store: StoreType = {
         this._callSubscriber(this._state);
     },
 
-    addNewText(textMessage: string) {
-        let newText = textMessage;
+    addNewText(newText: string) {
+
         this._state.profilePage.newPostState = newText;
         this._callSubscriber(this._state);
     },
@@ -96,7 +96,19 @@ let store: StoreType = {
     },
 
     dispatch(action) {
-        console.log(1)
+        if (action === 'ADD-POST') {
+            let newPost: PostsDataType = {
+                id: 5,
+                message: this._state.profilePage.newPostState,
+                likesCount: 0
+            };
+            this._state.profilePage.postsData.push(newPost);
+            this._state.profilePage.newPostState = "";
+            this._callSubscriber(this._state);
+        } else if (action === 'ADD-NEW-TEXT') {
+            this._state.profilePage.newPostState = newText;
+            this._callSubscriber(this._state);
+        }
     }
 }
 
