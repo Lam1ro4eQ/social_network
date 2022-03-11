@@ -30,8 +30,7 @@ const App = (props: PropsType) => {
                            />}/>
                     <Route path='/profile'
                            render={() => <Profile profilePage={props.state.profilePage}
-                                                  addPost={props.addPost}
-                                                  addNewText={props.addNewText}/>}/>
+                                                  dispatch={props.dispatch}/>}/>
 
                 </div>
             </div>

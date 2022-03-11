@@ -106,7 +106,7 @@ let store: StoreType = {
             this._state.profilePage.newPostState = "";
             this._callSubscriber(this._state);
         } else if (action === 'ADD-NEW-TEXT') {
-            this._state.profilePage.newPostState = newText;
+            this._state.profilePage.newPostState = action.newText;
             this._callSubscriber(this._state);
         }
     }
