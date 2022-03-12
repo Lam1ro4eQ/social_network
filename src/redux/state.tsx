@@ -70,23 +70,7 @@ let store: StoreType = {
         return this._state
     },
 
-    addPost() {
-        let newPost: PostsDataType = {
-            id: 5,
-            message: this._state.profilePage.newPostState,
-            likesCount: 0
-        };
-        this._state.profilePage.postsData.push(newPost);
-        this._state.profilePage.newPostState = "";
-        this._callSubscriber(this._state);
-    },
-
-    addNewText(newText: string) {
-
-        this._state.profilePage.newPostState = newText;
-        this._callSubscriber(this._state);
-    },
-
+    
     subscribe(observer: any) {
         this._callSubscriber = observer;
     },
