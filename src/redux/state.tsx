@@ -42,6 +42,8 @@ export type AddNewTextType = {
     newText: string
 }
 
+export type ActionType = AddPostTextType | AddNewTextType
+
 export type StoreType = {
     _state: StateType
     getState: () => StateType
@@ -49,7 +51,7 @@ export type StoreType = {
     //addNewText: (textMessage: string) => void
     subscribe: (observer: any) => void
     _callSubscriber: (state: StateType) => any
-    dispatch: (action: AddPostTextType | AddNewTextType) => void
+    dispatch: (action: ActionType) => void
 }
 
 let store: StoreType = {
@@ -79,7 +81,6 @@ let store: StoreType = {
     getState() {
         return this._state
     },
-
 
     subscribe(observer: any) {
         this._callSubscriber = observer;

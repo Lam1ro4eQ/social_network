@@ -1,13 +1,14 @@
 import React, {ChangeEvent, KeyboardEvent} from "react";
 import p from "./MyPosts.module.css"
 import Post from "./Post/Post";
-import {AddNewTextType, AddPostTextType, ProfilePageType} from "../../../redux/state";
+import {ActionType, AddNewTextType, AddPostTextType, ProfilePageType, StoreType} from "../../../redux/state";
 
 type PropsType = {
-    addNewText: (textMessage: string) => void
-    addPost: () => void
+    //addNewText: (textMessage: string) => void
+    //addPost: () => void
     profilePage: ProfilePageType
-    dispatch: (action: AddPostTextType | AddNewTextType) => void
+    dispatch: (action: ActionType) => void
+    store: StoreType
 }
 
 const MyPosts = (props: PropsType) => {
@@ -17,12 +18,12 @@ const MyPosts = (props: PropsType) => {
     let addNewTextArea = (e: ChangeEvent<HTMLTextAreaElement>) => {
             let text = e.currentTarget.value;
            // props.addNewText(text);
-        props.dispatch(action.type: 'ADD-NEW-TEXT', newText: text)
+        props.dispatch({type: 'ADD-NEW-TEXT', newText: text})
     }
 
     let addPost = () => {
         //props.addPost();
-        props.dispatch(type: 'ADD-POST')
+        props.dispatch({type: 'ADD-POST'})
     }
 
     let postsMap = props.profilePage.postsData.map(post => <Post message={post.message} likesCount={post.likesCount}/>) //мапим данные для отрисовки

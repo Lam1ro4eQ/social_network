@@ -3,13 +3,15 @@ import p from "./Profile.module.css"
 import MyPost from "./Myposts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import pi from "./ProfileInfo/ProfileInfo.module.css";
-import {ProfilePageType, StateType} from "../../redux/state";
+import {ActionType, ProfilePageType, StateType, StoreType} from "../../redux/state";
 import MyPosts from "./Myposts/MyPosts";
 
 type PropsType = {
+    store: StoreType
     profilePage: ProfilePageType
-    addPost: () => void
-    addNewText: (textMessage: string) => void
+    //addPost: () => void
+    //addNewText: (textMessage: string) => void
+    dispatch: (action: ActionType) => void
 }
 
 const Profile = (props: PropsType) => {
@@ -20,7 +22,8 @@ const Profile = (props: PropsType) => {
             </div>
             <ProfileInfo/>
             <MyPosts profilePage={props.profilePage}
-                     dispatch={props.dispatch}/>
+                     dispatch={props.store.dispatch.bind(props.store)}
+                     store={props.store}/>
         </div>
     )
 }
