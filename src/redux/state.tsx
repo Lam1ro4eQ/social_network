@@ -54,6 +54,9 @@ export type StoreType = {
     dispatch: (action: ActionType) => void
 }
 
+const ADD_NEW_TEXT = "ADD-NEW-TEXT"
+const ADD_POST = "ADD-POST"
+
 let store: StoreType = {
     _state: {
         profilePage: {
@@ -109,13 +112,13 @@ let store: StoreType = {
 
 export const addPostActionCreator = () => {
     return {
-        type: 'ADD-POST'
+        type: ADD_POST
     }
 }
 
 export const addNewTextActionCreator = (text) => {
     return {
-        type: 'ADD-NEW-TEXT',
+        type: ADD_NEW_TEXT,
         newText: text
     }
 }

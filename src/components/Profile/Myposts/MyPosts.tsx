@@ -1,7 +1,14 @@
 import React, {ChangeEvent, KeyboardEvent} from "react";
 import p from "./MyPosts.module.css"
 import Post from "./Post/Post";
-import {ActionType, AddNewTextType, AddPostTextType, ProfilePageType, StoreType} from "../../../redux/state";
+import {
+    ActionType,
+    addNewTextActionCreator,
+    AddNewTextType, addPostActionCreator,
+    AddPostTextType,
+    ProfilePageType,
+    StoreType
+} from "../../../redux/state";
 
 type PropsType = {
     //addNewText: (textMessage: string) => void
@@ -12,14 +19,13 @@ type PropsType = {
 }
 
 
-
 const MyPosts = (props: PropsType) => {
 
     let newPostElement = React.createRef<HTMLTextAreaElement>();
 
     let addNewTextArea = (e: ChangeEvent<HTMLTextAreaElement>) => {
-            let text = e.currentTarget.value;
-           // props.addNewText(text);
+        let text = e.currentTarget.value;
+        // props.addNewText(text);
         props.dispatch(addNewTextActionCreator())
     }
 
