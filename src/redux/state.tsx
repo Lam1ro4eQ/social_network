@@ -19,6 +19,7 @@ export type PostsDataType = {
 export type MessagePageType = {
     dialogsData: Array<DialogsDataType>
     messagesData: Array<MessagesDataType>
+    newMessageState: string
 }
 
 export type ProfilePageType = {
@@ -30,14 +31,9 @@ export type StateType = {
     // _state: Array<profilePageType | messagePageType>
     profilePage: ProfilePageType
     messagePage: MessagePageType
-
 }
 
-export type AddPostTextType = ReturnType<typeof addPostActionCreator>
-
-export type AddNewTextType = ReturnType<typeof addNewTextActionCreator>
-
-export type ActionType = AddPostTextType | AddNewTextType
+export type ActionType = ReturnType<typeof addPostActionCreator> | ReturnType<typeof addNewTextActionCreator> | ReturnType<typeof addMessageActionCreator> | ReturnType<typeof addNewTextMessageActionCreator>
 
 export type StoreType = {
     _state: StateType
@@ -51,6 +47,8 @@ export type StoreType = {
 
 const ADD_NEW_TEXT = "ADD-NEW-TEXT"
 const ADD_POST = "ADD-POST"
+const ADD_MESSAGE = "ADD-MESSAGE"
+const ADD_NEW_TEXT_MESSAGE = "ADD-NEW-TEXT-MESSAGE"
 
 let store: StoreType = {
     _state: {
@@ -72,7 +70,8 @@ let store: StoreType = {
                 {id: 1, message: 'Hi'},
                 {id: 2, message: 'How is your it-kamasutra'},
                 {id: 3, message: 'Yo'},
-            ]
+            ],
+            newMessageState: ""
         }
     },
 
@@ -101,12 +100,25 @@ let store: StoreType = {
         } else if (action.type === 'ADD-NEW-TEXT') {
             this._state.profilePage.newPostState = action.newText;
             this._callSubscriber(this._state);
+        } else if (action.type === 'ADD-MESSAGE') {
+            let newMessage: MessagesDataType = {
+                id: 4,
+                message: this._state.messagePage.newMessageState
+            };
+            this._state.messagePage.messagesData.push(newMessage);
+            this._state.messagePage.newMessageState = "";
+            this._callSubscriber(this._state);
+        } else if (action.type === 'ADD-NEW-TEXT-MESSAGE') {
+            this._state.messagePage.newMessageState = action.newTextMessage;
+            this._callSubscriber(this._state);
         }
     }
 }
 
 export const addPostActionCreator = () => ({type: ADD_POST} as const)
+export const addMessageActionCreator = () => ({type: ADD_MESSAGE} as const)
 export const addNewTextActionCreator = (text:string) => ({type: ADD_NEW_TEXT, newText: text} as const)
+export const addNewTextMessageActionCreator = (textMessage:string) => ({type: ADD_NEW_TEXT_MESSAGE, newTextMessage: textMessage} as const)
 
 export default store
 

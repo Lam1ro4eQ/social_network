@@ -4,8 +4,7 @@ import Post from "./Post/Post";
 import {
     ActionType,
     addNewTextActionCreator,
-    AddNewTextType, addPostActionCreator,
-    AddPostTextType,
+    addPostActionCreator,
     ProfilePageType,
     StoreType
 } from "../../../redux/state";
@@ -25,12 +24,10 @@ const MyPosts = (props: PropsType) => {
 
     let addNewTextArea = (e: ChangeEvent<HTMLTextAreaElement>) => {
         let text = e.currentTarget.value;
-        // props.addNewText(text);
         props.dispatch(addNewTextActionCreator(text))
     }
 
     let addPost = () => {
-        //props.addPost();
         props.dispatch(addPostActionCreator())
     }
 

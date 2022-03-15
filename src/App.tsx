@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
 import {BrowserRouter, Route, Router} from "react-router-dom";
-import {ActionType, AddNewTextType, AddPostTextType, StateType, StoreType} from "./redux/state";
+import {ActionType, StateType, StoreType} from "./redux/state";
 
 
 type PropsType = {
@@ -25,15 +25,16 @@ const App = (props: PropsType) => {
 
                     <Route path='/dialogs'
                            render={() => <Dialogs
-                               //state={props.state.messagePage}
+                               store={props.store}
                                messagePage={props.state.messagePage}
-                               //dialogsData={props.state.messagePage.dialogsData}
+                               dispatch={props.store.dispatch.bind(props.store)}
                            />}/>
                     <Route path='/profile'
                            render={() => <Profile
                                store={props.store}
                                profilePage={props.state.profilePage}
-                               dispatch={props.store.dispatch.bind(props.store)}/>}/>
+                               dispatch={props.store.dispatch.bind(props.store)}
+                           />}/>
 
                 </div>
             </div>
