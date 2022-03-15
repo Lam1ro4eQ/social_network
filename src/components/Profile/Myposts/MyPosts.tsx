@@ -26,7 +26,7 @@ const MyPosts = (props: PropsType) => {
     let addNewTextArea = (e: ChangeEvent<HTMLTextAreaElement>) => {
         let text = e.currentTarget.value;
         // props.addNewText(text);
-        props.dispatch(addNewTextActionCreator())
+        props.dispatch(addNewTextActionCreator(text))
     }
 
     let addPost = () => {
