@@ -110,18 +110,8 @@ let store: StoreType = {
     }
 }
 
-export const addPostActionCreator = () => {
-    return {
-        type: ADD_POST
-    }
-}
-
-export const addNewTextActionCreator = (text) => {
-    return {
-        type: ADD_NEW_TEXT,
-        newText: text
-    }
-}
+export const addPostActionCreator = () => ({type: ADD_POST})
+export const addNewTextActionCreator = (text) => ({type: ADD_NEW_TEXT, newText: text})
 
 export default store
 
