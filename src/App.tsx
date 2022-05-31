@@ -5,6 +5,7 @@ import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
 import {BrowserRouter, Route, Router} from "react-router-dom";
 import {ActionType, StateType, StoreType} from "./redux/state";
+import {FC} from "react";
 
 
 type PropsType = {
@@ -44,3 +45,5 @@ const App = (props: PropsType) => {
 
 
 export default App;
+
+

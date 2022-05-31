@@ -39,9 +39,9 @@ const Dialogs = (props: PropsType) => {
             </div>
             <div className={s.messages}>
                 text
-                {messagesMap}
-                <textarea ref={newMessageElement} onChange={addNewTextMessage} value={props.messagePage.newMessageState}/>
-                <button onClick={addMessage}>Отправить сообщение</button>
+                <div>{messagesMap}</div>
+                <div><textarea ref={newMessageElement} onChange={addNewTextMessage} value={props.messagePage.newMessageState}/></div>
+                <div><button onClick={addMessage}>Отправить сообщение</button></div>
             </div>
 
         </div>

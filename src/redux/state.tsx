@@ -33,7 +33,8 @@ export type StateType = {
     messagePage: MessagePageType
 }
 
-export type ActionType = ReturnType<typeof addPostActionCreator> | ReturnType<typeof addNewTextActionCreator> | ReturnType<typeof addMessageActionCreator> | ReturnType<typeof addNewTextMessageActionCreator>
+export type ActionType = ReturnType<typeof addPostActionCreator> | ReturnType<typeof addNewTextActionCreator>
+    | ReturnType<typeof addMessageActionCreator> | ReturnType<typeof addNewTextMessageActionCreator>
 
 export type StoreType = {
     _state: StateType
