@@ -9,6 +9,7 @@ import {
     MessagePageType,
     StoreType
 } from "../../redux/state";
+
 type PropsType = {
     messagePage: MessagePageType
     store: StoreType
@@ -17,11 +18,11 @@ type PropsType = {
 
 const Dialogs = (props: PropsType) => {
 
-     let dialogsMap = props.messagePage.dialogsData.map(dialog => <DialogItem name={dialog.name} id={dialog.id}/>) //мапим данные для отрисовки
+    let dialogsMap = props.messagePage.dialogsData.map(dialog => <DialogItem name={dialog.name} id={dialog.id}/>) //мапим данные для отрисовки
 
-     let messagesMap = props.messagePage.messagesData.map(message => <Message message={message.message}/>) //мапим данные для отрисовки
-
-     let newMessageElement = React.createRef<HTMLTextAreaElement>(); //ссылка для textarea
+    let messagesMap = props.messagePage.messagesData.map(message => <Message message={message.message}/>) //мапим данные для отрисовки
+    let newMessageState = props.messagePage.newMessageState
+    // let newMessageElement = React.createRef<HTMLTextAreaElement>(); //ссылка для textarea
 
 
     let addNewTextMessage = (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -30,6 +31,7 @@ const Dialogs = (props: PropsType) => {
     }
     let addMessage = () => {
         props.dispatch(addMessageActionCreator())
+
     }
 
     return (
@@ -40,8 +42,10 @@ const Dialogs = (props: PropsType) => {
             <div className={s.messages}>
                 text
                 <div>{messagesMap}</div>
-                <div><textarea ref={newMessageElement} onChange={addNewTextMessage} value={props.messagePage.newMessageState}/></div>
-                <div><button onClick={addMessage}>Отправить сообщение</button></div>
+                <div><textarea value={newMessageState} onChange={addNewTextMessage}/></div>
+                <div>
+                    <button onClick={addMessage}>Отправить сообщение</button>
+                </div>
             </div>
 
         </div>
@@ -49,3 +53,6 @@ const Dialogs = (props: PropsType) => {
 }
 
 export default Dialogs
+
+// value={props.messagePage.newMessageState}
+// ref={newMessageElement}
