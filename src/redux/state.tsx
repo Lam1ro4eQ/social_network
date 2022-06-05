@@ -92,8 +92,8 @@ let store: StoreType = {
 
     dispatch(action) {
 
-        messageReducer(this._state.messagePage, action)
-        profileReducer(this._state.profilePage, action)
+        this._state.messagePage = messageReducer(this._state.messagePage, action)
+        this._state.profilePage = profileReducer(this._state.profilePage, action)
 
         // if (action.type === 'ADD-POST') {
         //     let newPost: PostsDataType = {
