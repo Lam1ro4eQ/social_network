@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import {debug} from "util";
+import messageReducer from "./messageReducer";
+import profileReducer from "./profileReducer";
 //import {rerenderEntiretree} from "../index";
 
 export type MessagesDataType = {
@@ -89,30 +91,34 @@ let store: StoreType = {
     },
 
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
-            let newPost: PostsDataType = {
-                id: 5,
-                message: this._state.profilePage.newPostState,
-                likesCount: 0
-            };
-            this._state.profilePage.postsData.push(newPost);
-            this._state.profilePage.newPostState = "";
-            this._callSubscriber(this._state);
-        } else if (action.type === 'ADD-NEW-TEXT') {
-            this._state.profilePage.newPostState = action.newText;
-            this._callSubscriber(this._state);
-        } else if (action.type === 'ADD-MESSAGE') {
-            let newMessage: MessagesDataType = {
-                id: 4,
-                message: this._state.messagePage.newMessageState
-            };
-            this._state.messagePage.messagesData.push(newMessage);
-            this._state.messagePage.newMessageState = "";
-            this._callSubscriber(this._state);
-        } else if (action.type === 'ADD-NEW-TEXT-MESSAGE') {
-            this._state.messagePage.newMessageState = action.newTextMessage;
-            this._callSubscriber(this._state);
-        }
+
+        messageReducer(this._state.messagePage, action)
+        profileReducer(this._state.profilePage, action)
+
+        // if (action.type === 'ADD-POST') {
+        //     let newPost: PostsDataType = {
+        //         id: 5,
+        //         message: this._state.profilePage.newPostState,
+        //         likesCount: 0
+        //     };
+        //     this._state.profilePage.postsData.push(newPost);
+        //     this._state.profilePage.newPostState = "";
+        //     this._callSubscriber(this._state);
+        // } else if (action.type === 'ADD-NEW-TEXT') {
+        //     this._state.profilePage.newPostState = action.newText;
+        //     this._callSubscriber(this._state);
+        // } else if (action.type === 'ADD-MESSAGE') {
+        //     let newMessage: MessagesDataType = {
+        //         id: 4,
+        //         message: this._state.messagePage.newMessageState
+        //     };
+        //     this._state.messagePage.messagesData.push(newMessage);
+        //     this._state.messagePage.newMessageState = "";
+        //     this._callSubscriber(this._state);
+        // } else if (action.type === 'ADD-NEW-TEXT-MESSAGE') {
+        //     this._state.messagePage.newMessageState = action.newTextMessage;
+        //     this._callSubscriber(this._state);
+        // }
     }
 }
 
