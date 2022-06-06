@@ -3,11 +3,11 @@ import s from './Dialogs.module.css'
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
 import {
-    ActionType,
     MessagePageType,
     StoreType
 } from "../../redux/state";
 import {
+    messageActionType,
     addMessageActionCreator,
     addNewTextMessageActionCreator,
 } from "../../redux/messageReducer";
@@ -15,7 +15,7 @@ import {
 type PropsType = {
     messagePage: MessagePageType
     store: StoreType
-    dispatch: (action: ActionType) => void
+    dispatch: (action: messageActionType) => void
 }
 
 const Dialogs = (props: PropsType) => {

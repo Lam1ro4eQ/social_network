@@ -4,8 +4,10 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
 import {BrowserRouter, Route, Router} from "react-router-dom";
-import {ActionType, StateType, StoreType} from "./redux/state";
+import {StateType, StoreType} from "./redux/state";
 import {FC} from "react";
+import {messageActionType} from "./redux/messageReducer";
+import {profileActionType} from "./redux/profileReducer";
 
 
 type PropsType = {
@@ -13,7 +15,7 @@ type PropsType = {
     state: StateType
     //addPost: () => void
     //addNewText: (textMessage: string) => void
-    dispatch: (action: ActionType) => void
+    dispatch: (action: messageActionType | profileActionType) => void
 }
 const App = (props: PropsType) => {
     console.log(props.state.profilePage)

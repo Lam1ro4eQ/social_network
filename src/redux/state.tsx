@@ -37,9 +37,7 @@ export type StateType = {
 
 // export type ActionType = ReturnType<typeof addPostActionCreator> | ReturnType<typeof addNewTextActionCreator>
 //    | ReturnType<typeof addMessageActionCreator> | ReturnType<typeof addNewTextMessageActionCreator>
-// export type rootActionType = {
-//     action: messageActionType | profileActionType
-// }
+export type rootActionType = messageActionType | profileActionType
 
 export type StoreType = {
     _state: StateType
@@ -48,9 +46,8 @@ export type StoreType = {
     //addNewText: (textMessage: string) => void
     subscribe: (observer: any) => void
     _callSubscriber: (state: StateType) => any
-    dispatch: (action:messageActionType & profileActionType) => void
+    dispatch: (action: rootActionType) => void
 }
-
 
 
 let store: StoreType = {
@@ -90,10 +87,10 @@ let store: StoreType = {
         console.log('State changet')
     },
 
-    dispatch(action) {
+    dispatch(action ) {
 
-        this._state.messagePage = messageReducer(this._state.messagePage, action)
-        this._state.profilePage = profileReducer(this._state.profilePage, action)
+        this._state.messagePage = messageReducer(this._state.messagePage, action as messageActionType)
+        this._state.profilePage = profileReducer(this._state.profilePage, action as profileActionType)
 
         // if (action.type === 'ADD-POST') {
         //     let newPost: PostsDataType = {
@@ -117,12 +114,10 @@ let store: StoreType = {
         //     this._callSubscriber(this._state);
         // } else if (action.type === 'ADD-NEW-TEXT-MESSAGE') {
         //     this._state.messagePage.newMessageState = action.newTextMessage;
-        //     this._callSubscriber(this._state);
+            this._callSubscriber(this._state);
         // }
     }
 }
-
-
 
 
 export default store
