@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {debug} from "util";
-import messageReducer from "./messageReducer";
-import profileReducer from "./profileReducer";
+import messageReducer, {messageActionType} from "./messageReducer";
+import profileReducer, {profileActionType} from "./profileReducer";
 //import {rerenderEntiretree} from "../index";
 
 export type MessagesDataType = {
@@ -35,8 +35,11 @@ export type StateType = {
     messagePage: MessagePageType
 }
 
-export type ActionType = ReturnType<typeof addPostActionCreator> | ReturnType<typeof addNewTextActionCreator>
-    | ReturnType<typeof addMessageActionCreator> | ReturnType<typeof addNewTextMessageActionCreator>
+// export type ActionType = ReturnType<typeof addPostActionCreator> | ReturnType<typeof addNewTextActionCreator>
+//    | ReturnType<typeof addMessageActionCreator> | ReturnType<typeof addNewTextMessageActionCreator>
+// export type rootActionType = {
+//     action: messageActionType | profileActionType
+// }
 
 export type StoreType = {
     _state: StateType
@@ -45,13 +48,10 @@ export type StoreType = {
     //addNewText: (textMessage: string) => void
     subscribe: (observer: any) => void
     _callSubscriber: (state: StateType) => any
-    dispatch: (action: ActionType) => void
+    dispatch: (action:messageActionType & profileActionType) => void
 }
 
-const ADD_NEW_TEXT = "ADD-NEW-TEXT"
-const ADD_POST = "ADD-POST"
-const ADD_MESSAGE = "ADD-MESSAGE"
-const ADD_NEW_TEXT_MESSAGE = "ADD-NEW-TEXT-MESSAGE"
+
 
 let store: StoreType = {
     _state: {
@@ -122,10 +122,8 @@ let store: StoreType = {
     }
 }
 
-export const addPostActionCreator = () => ({type: ADD_POST} as const)
-export const addMessageActionCreator = () => ({type: ADD_MESSAGE} as const)
-export const addNewTextActionCreator = (text:string) => ({type: ADD_NEW_TEXT, newText: text} as const)
-export const addNewTextMessageActionCreator = (textMessage:string) => ({type: ADD_NEW_TEXT_MESSAGE, newTextMessage: textMessage} as const)
+
+
 
 export default store
 

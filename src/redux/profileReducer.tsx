@@ -1,9 +1,10 @@
-import {ActionType, PostsDataType, ProfilePageType} from "./state";
+import { PostsDataType, ProfilePageType} from "./state";
 
 const ADD_NEW_TEXT = "ADD-NEW-TEXT"
 const ADD_POST = "ADD-POST"
+export type profileActionType = ReturnType<typeof addPostActionCreator> | ReturnType<typeof addNewTextActionCreator>
 
-const profileReducer = (state:ProfilePageType, action: ActionType) => {
+const profileReducer = (state:ProfilePageType, action: profileActionType) => {
     switch (action.type) {
         case ADD_POST:
             let newPost: PostsDataType = {
@@ -22,7 +23,8 @@ const profileReducer = (state:ProfilePageType, action: ActionType) => {
 
 
     }
-
+export const addNewTextActionCreator = (text:string) => ({type: ADD_NEW_TEXT, newText: text} as const)
+export const addPostActionCreator = () => ({type: ADD_POST} as const)
 
 // if (action.type === ADD_POST) {
 //     let newPost: PostsDataType = {

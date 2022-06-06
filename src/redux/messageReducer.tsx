@@ -1,8 +1,8 @@
-import state, {ActionType, MessagePageType, MessagesDataType, PostsDataType, StateType} from "./state";
+import state, { MessagePageType, MessagesDataType, PostsDataType, StateType} from "./state";
 const ADD_MESSAGE = "ADD-MESSAGE"
 const ADD_NEW_TEXT_MESSAGE = "ADD-NEW-TEXT-MESSAGE"
-
-const messageReducer = (state: MessagePageType,action: ActionType) => {
+export type messageActionType = ReturnType<typeof addMessageActionCreator> | ReturnType<typeof addNewTextMessageActionCreator>
+const messageReducer = (state: MessagePageType,action: messageActionType) => {
 
     switch (action.type) {
         case ADD_MESSAGE:
@@ -18,7 +18,9 @@ const messageReducer = (state: MessagePageType,action: ActionType) => {
             return state;
         default: return state;
     }
-    
+
 }
+export const addMessageActionCreator = () => ({type: ADD_MESSAGE} as const)
+export const addNewTextMessageActionCreator = (textMessage:string) => ({type: ADD_NEW_TEXT_MESSAGE, newTextMessage: textMessage} as const)
 
 export default messageReducer;

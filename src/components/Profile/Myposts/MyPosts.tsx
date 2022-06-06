@@ -3,11 +3,13 @@ import p from "./MyPosts.module.css"
 import Post from "./Post/Post";
 import {
     ActionType,
-    addNewTextActionCreator,
-    addPostActionCreator,
     ProfilePageType,
     StoreType
 } from "../../../redux/state";
+import {
+    addNewTextActionCreator,
+    addPostActionCreator,
+} from "../../../redux/profileReducer";
 
 type PropsType = {
     //addNewText: (textMessage: string) => void
