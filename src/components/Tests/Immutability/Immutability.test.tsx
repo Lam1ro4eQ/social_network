@@ -1,4 +1,4 @@
-import {makeHairstyle, moveUser, UserType, UserWithLaptopType} from "./Immutability";
+import {makeHairstyle, moveUser, upgradeUserLaptop, UserType, UserWithLaptopType} from "./Immutability";
 
 
 test('reference type test', () => {
@@ -32,13 +32,28 @@ test('change address', () => {
             title: 'ZenBook'
         }
     }
-
     const movedUser = moveUser(user, 'Kiev')
-
     expect(user).not.toBe(movedUser)
     expect(user.address).not.toBe(movedUser.address)
     expect(user.laptop).toBe(movedUser.laptop)
     expect(movedUser.address.city).toBe('Kiev')
+})
 
-
+test('upgrade laptop to macbook', () => {
+    let user: UserWithLaptopType = {
+        name: 'Dimych',
+        hair: 32,
+        address: {
+            city: 'Minsk',
+            house: 12
+        },
+        laptop: {
+            title: 'ZenBook'
+        }
+    }
+    const movedUser = upgradeUserLaptop(user, 'Macbook')
+    expect(user).not.toBe(movedUser)
+    expect(user.laptop).not.toBe(movedUser.laptop)
+    expect(user.address).toBe(movedUser.address)
+    expect(movedUser.laptop.title).toBe('Macbook')
 })
