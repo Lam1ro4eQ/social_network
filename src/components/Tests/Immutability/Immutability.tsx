@@ -5,3 +5,14 @@ export type UserType = {
         title: string
     }
 }
+
+
+export function makeHairstyle(u: UserType, power:number) {
+    const copy = {
+        ...u,
+        hair: u.hair / power
+    }
+    // copy.hair = u.hair / power
+
+    return copy
+}
