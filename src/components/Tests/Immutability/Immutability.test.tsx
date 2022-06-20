@@ -106,7 +106,8 @@ test('add new book', () => {
     expect(user.laptop).toBe(movedUser.laptop)
     expect(user.address).toBe(movedUser.address)
     expect(user.books).not.toBe(movedUser.books)
-    expect(user.books[4]).toBe('ts')
-    expect(user.books[5]).toBe('rest api')
+    expect(movedUser.books[4]).toBe('ts')
+    expect(movedUser.books[5]).toBe('rest api')
+    expect(user.books.length).toBe(4)
 
 })
