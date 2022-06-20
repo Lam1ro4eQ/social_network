@@ -1,7 +1,7 @@
 import {
     addNewBooksToUser,
     makeHairstyle,
-    moveUser, moveUserToOtherHouse, updateBooksToUser,
+    moveUser, moveUserToOtherHouse, removeBookToUser, updateBookToUser,
     upgradeUserLaptop,
     UserType,
     UserWithBooksType,
@@ -125,7 +125,7 @@ test('update js to jsx', () => {
         },
         books: ['css', 'html', 'react', 'js']
     }
-    const movedUser = updateBooksToUser(user,'jsx','js')
+    const movedUser = updateBookToUser(user,'jsx','js')
 
     expect(user).not.toBe(movedUser)
     expect(user.laptop).toBe(movedUser.laptop)
@@ -133,5 +133,29 @@ test('update js to jsx', () => {
     expect(user.books).not.toBe(movedUser.books)
     expect(movedUser.books[3]).toBe('jsx')
     expect(user.books.length).toBe(4)
+
+})
+
+test('delete book', () => {
+    let user: UserWithLaptopType & UserWithBooksType = {
+        name: 'Dimych',
+        hair: 32,
+        address: {
+            city: 'Minsk',
+            house: 12
+        },
+        laptop: {
+            title: 'ZenBook'
+        },
+        books: ['css', 'html', 'react', 'js']
+    }
+    const movedUser = removeBookToUser(user,'js')
+
+    expect(user).not.toBe(movedUser)
+    expect(user.laptop).toBe(movedUser.laptop)
+    expect(user.address).toBe(movedUser.address)
+    expect(user.books).not.toBe(movedUser.books)
+    expect(movedUser.books[3]).not.toBe('js')
+
 
 })

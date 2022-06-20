@@ -63,9 +63,12 @@ export function addNewBooksToUser(u: UserWithBooksType & UserWithLaptopType, boo
     }
 }
 
-export function updateBooksToUser(u: UserWithBooksType & UserWithLaptopType, newBook: string, oldBook: string) {
-    return {
-        ...u,
-        books: u.books.map(b => b === oldBook ? newBook : b)
-    }
-}
+export const updateBookToUser = (u: UserWithBooksType & UserWithLaptopType, newBook: string, oldBook: string) => ({
+    ...u,
+    books: u.books.map(b => b === oldBook ? newBook : b)
+})
+
+export const removeBookToUser = (u: UserWithBooksType & UserWithLaptopType, book: string) => ({
+    ...u,
+    books: u.books.filter(b => b !== book)
+})
