@@ -38,6 +38,7 @@ export function moveUser(u: UserWithLaptopType, city: string) {
     // copyUser.address = {...copyUser.address, city: city}
     return copyUser
 }
+
 export function moveUserToOtherHouse(u: UserWithLaptopType, house: number) {
     const copyUser = {
         ...u,
@@ -53,9 +54,18 @@ export function upgradeUserLaptop(u: UserWithLaptopType, laptop: string) {
         ...u,
         laptop: {...u.laptop, title: laptop}
     }
-}export function addNewBooksToUser(u: UserWithBooksType & UserWithLaptopType, books: Array<string>) {
+}
+
+export function addNewBooksToUser(u: UserWithBooksType & UserWithLaptopType, books: Array<string>) {
     return {
         ...u,
-        books:[...u.books,...books]
+        books: [...u.books, ...books]
+    }
+}
+
+export function updateBooksToUser(u: UserWithBooksType & UserWithLaptopType, newBook: string, oldBook: string) {
+    return {
+        ...u,
+        books: u.books.map(b => b === oldBook ? newBook : b)
     }
 }
