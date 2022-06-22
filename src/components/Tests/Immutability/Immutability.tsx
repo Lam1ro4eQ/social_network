@@ -19,10 +19,10 @@ export type UserWithBooksType = UserType & {
     books: Array<string>
 }
 
-export type WithCompaniesType =  {
+export type WithCompaniesType = {
     companies: Array<{
-        id:number
-        title:string
+        id: number
+        title: string
     }>
 }
 
@@ -80,9 +80,17 @@ export const removeBookToUser = (u: UserWithBooksType & UserWithLaptopType, book
     books: u.books.filter(b => b !== book)
 })
 
-export function addNewCompanyToUser(u: UserWithLaptopType & WithCompaniesType, id:number,title:string) {
+export function addNewCompanyToUser(u: UserWithLaptopType & WithCompaniesType, id: number, title: string) {
     return {
         ...u,
-        companies: [...u.companies, {id,title}]
+        companies: [...u.companies, {id, title}]
     }
 }
+
+export const updateCompanyTitle = (u: WithCompaniesType, id: number, company: string) => ({
+    ...u,
+    companies: u.companies.map(c => c.id === id
+        ? {...c, title: company}
+        : c)
+})
+

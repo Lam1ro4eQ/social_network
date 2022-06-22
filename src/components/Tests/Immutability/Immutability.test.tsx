@@ -1,7 +1,7 @@
 import {
     addNewBooksToUser, addNewCompanyToUser,
     makeHairstyle,
-    moveUser, moveUserToOtherHouse, removeBookToUser, updateBookToUser,
+    moveUser, moveUserToOtherHouse, removeBookToUser, updateBookToUser, updateCompanyTitle,
     upgradeUserLaptop,
     UserType,
     UserWithBooksType,
@@ -207,6 +207,24 @@ test('add company', () => {
     expect(movedUser.companies.length).toBe(3)
     expect(movedUser.companies[2].id).toBe(3)
     expect(movedUser.companies[2].title).toBe('FSB')
+})
 
+test('update company title', () => {
+    let user: UserWithLaptopType & WithCompaniesType = {
+        name: 'Dimych',
+        hair: 32,
+        address: {
+            city: 'Minsk',
+            house: 12
+        },
+        laptop: {
+            title: 'ZenBook'
+        },
+        companies: [{id: 1, title: 'epam'}, {id: 2, title: 'IT-INCUBATOR'}]
+    }
+    const movedUser = updateCompanyTitle(user, 1,'EPAM') as UserWithLaptopType & WithCompaniesType
 
+    expect(user).not.toBe(movedUser)
+    expect(user.companies).not.toBe(movedUser.companies)
+    expect(movedUser.companies[0].title).toBe('EPAM')
 })
