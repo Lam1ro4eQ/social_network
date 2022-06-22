@@ -1,11 +1,11 @@
 import {
-    addNewBooksToUser,
+    addNewBooksToUser, addNewCompanyToUser,
     makeHairstyle,
     moveUser, moveUserToOtherHouse, removeBookToUser, updateBookToUser,
     upgradeUserLaptop,
     UserType,
     UserWithBooksType,
-    UserWithLaptopType
+    UserWithLaptopType, WithCompaniesType
 } from "./Immutability";
 
 
@@ -100,7 +100,7 @@ test('add new book', () => {
         },
         books: ['css', 'html', 'react', 'js']
     }
-    const movedUser = addNewBooksToUser(user,['ts','rest api'])
+    const movedUser = addNewBooksToUser(user, ['ts', 'rest api'])
 
     expect(user).not.toBe(movedUser)
     expect(user.laptop).toBe(movedUser.laptop)
@@ -125,7 +125,7 @@ test('update js to jsx', () => {
         },
         books: ['css', 'html', 'react', 'js']
     }
-    const movedUser = updateBookToUser(user,'jsx','js')
+    const movedUser = updateBookToUser(user, 'jsx', 'js')
 
     expect(user).not.toBe(movedUser)
     expect(user.laptop).toBe(movedUser.laptop)
@@ -149,13 +149,64 @@ test('delete book', () => {
         },
         books: ['css', 'html', 'react', 'js']
     }
-    const movedUser = removeBookToUser(user,'js')
+    const movedUser = removeBookToUser(user, 'js')
 
     expect(user).not.toBe(movedUser)
     expect(user.laptop).toBe(movedUser.laptop)
     expect(user.address).toBe(movedUser.address)
     expect(user.books).not.toBe(movedUser.books)
     expect(movedUser.books[3]).not.toBe('js')
+
+})
+
+test('add company', () => {
+    let user: UserWithLaptopType & WithCompaniesType = {
+        name: 'Dimych',
+        hair: 32,
+        address: {
+            city: 'Minsk',
+            house: 12
+        },
+        laptop: {
+            title: 'ZenBook'
+        },
+        companies: [{id: 1, title: 'epam'}, {id: 2, title: 'IT-INCUBATOR'}]
+    }
+    const movedUser = addNewCompanyToUser(user, 3,'FSB')
+
+    expect(user).not.toBe(movedUser)
+    expect(user.laptop).toBe(movedUser.laptop)
+    expect(user.address).toBe(movedUser.address)
+    expect(user.companies).not.toBe(movedUser.companies)
+    expect(movedUser.companies.length).toBe(3)
+    expect(movedUser.companies[2].id).toBe(3)
+    expect(movedUser.companies[2].title).toBe('FSB')
+
+
+})
+
+test('add company', () => {
+    let user: UserWithLaptopType & WithCompaniesType = {
+        name: 'Dimych',
+        hair: 32,
+        address: {
+            city: 'Minsk',
+            house: 12
+        },
+        laptop: {
+            title: 'ZenBook'
+        },
+        companies: [{id: 1, title: 'epam'}, {id: 2, title: 'IT-INCUBATOR'}]
+    }
+    const movedUser = addNewCompanyToUser(user, 3,'FSB')
+
+    expect(user).not.toBe(movedUser)
+    expect(user.laptop).toBe(movedUser.laptop)
+    expect(user.address).toBe(movedUser.address)
+    expect(user.companies).not.toBe(movedUser.companies)
+    expect(movedUser.companies.length).toBe(3)
+    expect(movedUser.companies[2].id).toBe(3)
+    expect(movedUser.companies[2].title).toBe('FSB')
 
 
 })
