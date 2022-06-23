@@ -1,7 +1,7 @@
 import {
     addNewBooksToUser, addNewCompanyToUser,
     makeHairstyle,
-    moveUser, moveUserToOtherHouse, removeBookToUser, updateBookToUser, updateCompanyTitle,
+    moveUser, moveUserToOtherHouse, removeBookToUser, updateBookToUser, updateCompanyTitle, updateCompanyTitle2,
     upgradeUserLaptop,
     UserType,
     UserWithBooksType,
@@ -246,6 +246,8 @@ test('update company', () => {
         'Dimych':  [{id: 1, title: 'epam'}, {id: 2, title: 'IT-INCUBATOR'}],
         'Artem':  [{id: 1, title: 'IT-INCUBATOR'}]
     }
-    const movedUser(companies:) =
+    const movedUser = updateCompanyTitle2(companies, 'Artem', 1, 'IT')
+
+    expect(movedUser['Artem'][0].title).toBe('IT')
 
 })
