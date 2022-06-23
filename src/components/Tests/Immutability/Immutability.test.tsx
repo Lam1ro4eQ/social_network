@@ -228,3 +228,24 @@ test('update company title', () => {
     expect(user.companies).not.toBe(movedUser.companies)
     expect(movedUser.companies[0].title).toBe('EPAM')
 })
+
+test('update company', () => {
+    let user: UserWithLaptopType = {
+        name: 'Dimych',
+        hair: 32,
+        address: {
+            city: 'Minsk',
+            house: 12
+        },
+        laptop: {
+            title: 'ZenBook'
+        },
+    }
+
+    let companies = {
+        'Dimych':  [{id: 1, title: 'epam'}, {id: 2, title: 'IT-INCUBATOR'}],
+        'Artem':  [{id: 1, title: 'IT-INCUBATOR'}]
+    }
+    const movedUser(companies:) =
+
+})

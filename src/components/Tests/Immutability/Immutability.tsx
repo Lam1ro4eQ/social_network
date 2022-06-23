@@ -94,3 +94,10 @@ export const updateCompanyTitle = (u: WithCompaniesType, id: number, company: st
         : c)
 })
 
+export const updateCompanyTitle2 = (companies: any, userName:string, id: number, company: string) => {
+    let companyCopy = {...companies}
+    companies[userName] = companies[userName].map(c => c.id === )
+
+ return companyCopy
+}
+
