@@ -229,6 +229,8 @@ test('update company title', () => {
     expect(movedUser.companies[0].title).toBe('EPAM')
 })
 
+
+
 test('update company', () => {
     let user: UserWithLaptopType = {
         name: 'Dimych',
