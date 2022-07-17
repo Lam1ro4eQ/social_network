@@ -4,7 +4,7 @@ import Post from "./Post/Post";
 import {
     ProfilePageType,
     StoreType
-} from "../../../redux/state";
+} from "../../../redux/store";
 import {
     addNewTextActionCreator,
     addPostActionCreator, profileActionType,

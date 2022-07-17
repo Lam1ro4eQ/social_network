@@ -3,7 +3,7 @@ import p from "./Profile.module.css"
 import MyPost from "./Myposts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import pi from "./ProfileInfo/ProfileInfo.module.css";
-import { ProfilePageType, StateType, StoreType} from "../../redux/state";
+import { ProfilePageType, StateType, StoreType} from "../../redux/store";
 import MyPosts from "./Myposts/MyPosts";
 import {profileActionType} from "../../redux/profileReducer";
 

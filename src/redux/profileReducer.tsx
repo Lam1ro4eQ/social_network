@@ -1,4 +1,4 @@
-import {PostsDataType, ProfilePageType, rootActionType} from "./state";
+import {PostsDataType, ProfilePageType, rootActionType} from "./store";
 
 const ADD_NEW_TEXT = "ADD-NEW-TEXT"
 const ADD_POST = "ADD-POST"

@@ -5,7 +5,7 @@ import DialogItem from "./DialogItem/DialogItem";
 import {
     MessagePageType,
     StoreType
-} from "../../redux/state";
+} from "../../redux/store";
 import {
     messageActionType,
     addMessageActionCreator,
