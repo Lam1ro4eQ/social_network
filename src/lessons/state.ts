@@ -41,11 +41,46 @@
 // }
 
 
+// function toUpperCase(strings: Array<string>): Array<string>{
+//     let result = strings.map(s => s.toUpperCase());
+//     return result;
+// } // если ничего не возвращает, то : void
 
-function toUpperCase(strings: Array<string>): Array<string>{
-    let result = strings.map(s => s.toUpperCase());
-    return result;
+
+// type ManType = { name: string, height: number }
+//
+// let createMan = (name: string, height: number): ManType => {
+//     return {
+//         name,
+//         height
+//     };
+// }
+
+
+interface ICar {
+    model: string,
+    year: number,
+    on: boolean,
+    turnOn: () => void,
+    rename: (model:string) => void
 }
+
+let car: ICar = {
+    model: 'Reno Stepway',
+    year: 2016,
+    on: false,
+    turnOn() {
+        this.on = true;
+    },
+    rename(model) {
+        this.model = model;
+    }
+}
+
+
+
+
+
 
 
 
