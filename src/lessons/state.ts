@@ -57,32 +57,58 @@
 // }
 
 
-interface ICar {
+// interface ICar {
+//     model: string,
+//     year: number,
+//     on: boolean,
+//     turnOn: () => void,
+//     rename: (model:string) => void
+// }
+// let car: ICar = {
+//     model: 'Reno Stepway',
+//     year: 2016,
+//     on: false,
+//     turnOn() {
+//         this.on = true;
+//     },
+//     rename(model) {
+//         this.model = model;
+//     }
+// }
+
+
+// 14) Создайте interface IGarage и типизируйте этот кусок кода:
+//     (используя те интерфейсы, которые у вас есть
+type CarType = {
     model: string,
     year: number,
     on: boolean,
     turnOn: () => void,
-    rename: (model:string) => void
+    rename: (model: string) => void
 }
 
-let car: ICar = {
-    model: 'Reno Stepway',
-    year: 2016,
-    on: false,
-    turnOn() {
-        this.on = true;
-    },
-    rename(model) {
-        this.model = model;
+type IGarage = {
+    addCar: (car: CarType) => void
+    logAllCarsNames: () => void
+    getAllCars: () => Array<CarType>
+}
+
+let createGarage = ():IGarage => {
+    let _cars:Array<CarType> = [];
+
+    return {
+        addCar(car) {
+            _cars.push(car);
+        },
+        logAllCarsNames() {
+            console.log('Cars in the garage: ');
+            _cars.forEach(c => console.log(c.model));
+        },
+        getAllCars() {
+            return _cars;
+        }
     }
 }
-
-
-
-
-
-
-
 
 
 export default 15;
