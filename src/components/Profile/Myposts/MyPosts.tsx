@@ -14,8 +14,8 @@ type PropsType = {
     addNewText: (textMessage: string) => void
     addPost: () => void
     profilePage: ProfilePageType
-    dispatch: (action: profileActionType) => void
-    store: StoreType
+    // dispatch: (action: profileActionType) => void
+    // store: StoreType
 }
 
 

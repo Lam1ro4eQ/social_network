@@ -34,6 +34,7 @@ const MyPostsContainer = (props: PropsType) => {
 
     return (<MyPosts addNewText={addNewTextArea}
                      addPost={addPost}
+                     profilePage={props.profilePage}
     />)
 }
 
