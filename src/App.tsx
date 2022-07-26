@@ -18,7 +18,6 @@ type PropsType = {
     dispatch: (action: messageActionType | profileActionType) => void
 }
 const App = (props: PropsType) => {
-    console.log(props.state.profilePage)
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
@@ -27,24 +26,17 @@ const App = (props: PropsType) => {
                 <div className={'app-wrapper-content'}>
 
                     <Route path='/dialogs'
-                           render={() => <Dialogs
-                               store={props.store}
-                               messagePage={props.state.messagePage}
-                               dispatch={props.store.dispatch.bind(props.store)}
-                           />}/>
+                           render={() => <Dialogs/>}/>
                     <Route path='/profile'
-                           render={() => <Profile
-                               store={props.store}
-                               profilePage={props.state.profilePage}
-                               dispatch={props.store.dispatch.bind(props.store)}
-                           />}/>
+                           render={() => <Profile/>}/>
 
                 </div>
             </div>
         </BrowserRouter>
     );
 }
-
+//    store={props.store}   messagePage={props.state.messagePage}  dispatch={props.store.dispatch.bind(props.store)}
+//    store={props.store} profilePage={props.state.profilePage}     dispatch={props.store.dispatch.bind(props.store)}
 
 export default App;
 
