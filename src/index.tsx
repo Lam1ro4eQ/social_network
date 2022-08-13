@@ -12,7 +12,7 @@ export let rerenderEntiretree = (state: StateType) => {
     ReactDOM.render(
         <BrowserRouter>
             <StoreContext.Provider value={store}>
-                <App /> //state={state} store={store} dispatch={store.dispatch.bind(store)}
+                <App />
             </StoreContext.Provider>
         </BrowserRouter>,
         document.getElementById('root')
@@ -25,5 +25,8 @@ store.subscribe(() => {
     let state = store.getState()
     rerenderEntiretree(state)
 });
+
+
+//state={state} store={store} dispatch={store.dispatch.bind(store)}
 
 
