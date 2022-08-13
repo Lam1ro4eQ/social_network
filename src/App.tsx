@@ -8,6 +8,7 @@ import {StateType, StoreType} from "./redux/store";
 import {FC} from "react";
 import {messageActionType} from "./redux/messageReducer";
 import {profileActionType} from "./redux/profileReducer";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 
 type PropsType = {
@@ -26,7 +27,7 @@ const App = (props: PropsType) => {
                 <div className={'app-wrapper-content'}>
 
                     <Route path='/dialogs'
-                           render={() => <Dialogs/>}/>
+                           render={() => <DialogsContainer store={props.store}/>}/>
 
                     <Route path='/profile'
                            render={() => <Profile store={props.store}/>}/>
