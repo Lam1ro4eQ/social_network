@@ -15,7 +15,7 @@ type PropsType = {
     state: StateType
     //addPost: () => void
     //addNewText: (textMessage: string) => void
-    dispatch: (action: messageActionType | profileActionType) => void
+    dispatch?: (action: messageActionType | profileActionType) => void
 }
 const App = (props: PropsType) => {
     return (
@@ -27,8 +27,9 @@ const App = (props: PropsType) => {
 
                     <Route path='/dialogs'
                            render={() => <Dialogs/>}/>
+
                     <Route path='/profile'
-                           render={() => <Profile/>}/>
+                           render={() => <Profile store={props.store}/>}/>
 
                 </div>
             </div>

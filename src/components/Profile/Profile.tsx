@@ -23,9 +23,7 @@ const Profile = (props: PropsType) => {
                 <img className={pi.bgImg} src="https://cdn.promodj.com/afs/f74a72ad339d46cd7bb803582aec8d3912:d3f046"/>
             </div>
             <ProfileInfo/>
-            <MyPostsContainer profilePage={props.profilePage}
-                              dispatch={props.store.dispatch.bind(props.store)}
-                              store={props.store}/>
+            <MyPostsContainer store={props.store}/>
         </div>
     )
 }

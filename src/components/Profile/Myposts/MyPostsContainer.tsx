@@ -32,7 +32,9 @@ const MyPostsContainer = (props: PropsType) => {
                 }
                 return <MyPosts addNewText={addNewTextArea}
                                 addPost={addPost}
-                                profilePage={props.profilePage}/>
+                                profilePage={props.store.getState().profilePage}
+
+                />
             }
         }
         </StoreContext.Consumer>
