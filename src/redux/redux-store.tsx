@@ -13,4 +13,6 @@ let redusers = combineReducers({
 
 let store = createStore(redusers);
 
+export type StoreType = typeof store
+
 export default store;

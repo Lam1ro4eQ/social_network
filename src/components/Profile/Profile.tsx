@@ -3,17 +3,15 @@ import p from "./Profile.module.css"
 import MyPost from "./Myposts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import pi from "./ProfileInfo/ProfileInfo.module.css";
-import {ProfilePageType, rootActionType, StateType, StoreType} from "../../redux/store";
+import {StoreType} from "../../redux/redux-store";
 import MyPosts from "./Myposts/MyPosts";
 import {profileActionType} from "../../redux/profileReducer";
 import MyPostsContainer from "./Myposts/MyPostsContainer";
 
 type PropsType = {
     store: StoreType
-    profilePage: ProfilePageType
     //addPost: () => void
     //addNewText: (textMessage: string) => void
-    dispatch: (action: rootActionType) => void
 }
 
 const Profile = (props: PropsType) => {
