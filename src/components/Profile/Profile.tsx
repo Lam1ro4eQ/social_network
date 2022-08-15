@@ -10,8 +10,6 @@ import MyPostsContainer from "./Myposts/MyPostsContainer";
 
 type PropsType = {
     store: StoreType
-    //addPost: () => void
-    //addNewText: (textMessage: string) => void
 }
 
 const Profile = (props: PropsType) => {
@@ -21,7 +19,7 @@ const Profile = (props: PropsType) => {
                 <img className={pi.bgImg} src="https://cdn.promodj.com/afs/f74a72ad339d46cd7bb803582aec8d3912:d3f046"/>
             </div>
             <ProfileInfo/>
-            <MyPostsContainer store={props.store}/>
+            <MyPostsContainer />
         </div>
     )
 }

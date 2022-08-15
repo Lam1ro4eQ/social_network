@@ -11,9 +11,9 @@ import StoreContext from './StoreContext';
 export let rerenderEntiretree = (state: StateType) => {
     ReactDOM.render(
         <BrowserRouter>
-
-                <App store={store}/>
-
+            <StoreContext.Provider value={store}>
+                <App/>
+            </StoreContext.Provider>
         </BrowserRouter>,
         document.getElementById('root')
     );

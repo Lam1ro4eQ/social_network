@@ -11,22 +11,27 @@ type PropsType = {
 
 
 const MyPostsContainer = (props: PropsType) => {
-
+    return (
+        <StoreContext.Consumer> {
+            (store) => {
 
                 let addNewTextArea = (textMessage: string) => {
                     // props.addNewText(text)
-                    props.store.dispatch(addNewTextActionCreator(textMessage))
+                    store.dispatch(addNewTextActionCreator(textMessage))
                 }
 
                 let addPost = () => {
                     // props.addPost()
-                    props.store.dispatch(addPostActionCreator())
+                    store.dispatch(addPostActionCreator())
                 }
+
                 return <MyPosts addNewText={addNewTextArea}
                                 addPost={addPost}
-                                profilePage={props.store.getState().profilePage}
-
-                />
+                                profilePage={store.getState().profilePage}/>
+            }
+        }
+        </StoreContext.Consumer>
+    )
 
 
 }
