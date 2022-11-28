@@ -12,7 +12,7 @@ type PropsType = {
     store: StoreType
 }
 
-const Profile = (props: PropsType) => {
+const Profile = () => {
     return (
         <div className={p.content}>
             <div>

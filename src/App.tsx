@@ -17,7 +17,7 @@ type PropsType = {
     //addNewText: (textMessage: string) => void
     dispatch?: (action: messageActionType | profileActionType) => void
 }
-const App = (props: PropsType) => {
+const App = () => {
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
