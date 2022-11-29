@@ -6,13 +6,12 @@ import profileReducer from "./profileReducer";
 
 
 
-let redusers = combineReducers({
+let rootReduser = combineReducers({
     messagePage: messageReducer,
     profilePage: profileReducer
 });
 
-let store = createStore(redusers);
 
-export type StoreType = typeof store
+export type AppStateType = ReturnType<typeof rootReduser>
 
-export default store;
+export const store = createStore(rootReduser);

@@ -1,48 +1,24 @@
 import React from "react";
 
-import {StoreType} from "../../../redux/redux-store";
+import {AppStateType} from "../../../redux/redux-store";
 import {addNewTextActionCreator, addPostActionCreator, profileActionType} from "../../../redux/profileReducer";
 import MyPosts from "./MyPosts";
-import {StoreContext} from "../../../StoreContext";
 import {connect} from "react-redux";
-
-type PropsType = {
-    store: StoreType
-}
+import {Dispatch} from "redux";
 
 
-// const MyPostsContainer = () => {
-//     return (
-//         <StoreContext.Consumer>
-//             {
-//                 (store) => {
-//
-//                     let addNewTextArea = (textMessage: string) => {
-//                         // props.addNewText(text)
-//                         store.dispatch(addNewTextActionCreator(textMessage))
-//                     }
-//
-//                     let addPost = () => {
-//                         // props.addPost()
-//                         store.dispatch(addPostActionCreator())
-//                     }
-//
-//                     return <MyPosts addNewText={addNewTextArea}
-//                                     addPost={addPost}
-//                                     profilePage={store.getState().profilePage}/>
-//                 }
-//             }
-//         </StoreContext.Consumer>
-//     )
-// }
 
-let mapStateToProps = (state) => {
+
+
+
+let mapStateToProps = (state:AppStateType) => {
     return {
-        profilePage: state.profilePage
+        profilePage: state.profilePage,
+        newPostState: state.profilePage.newPostState
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
+let mapDispatchToProps = (dispatch: Dispatch) => {
     return {
         addNewText: (textMessage: string) => {
             dispatch(addNewTextActionCreator(textMessage))

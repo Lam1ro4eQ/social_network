@@ -3,13 +3,13 @@ import p from "./Profile.module.css"
 import MyPost from "./Myposts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import pi from "./ProfileInfo/ProfileInfo.module.css";
-import {StoreType} from "../../redux/redux-store";
+import {AppStateType} from "../../redux/redux-store";
 import MyPosts from "./Myposts/MyPosts";
 import {profileActionType} from "../../redux/profileReducer";
 import MyPostsContainer from "./Myposts/MyPostsContainer";
 
 type PropsType = {
-    store: StoreType
+    store: AppStateType
 }
 
 const Profile = () => {
