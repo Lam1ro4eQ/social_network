@@ -31,10 +31,8 @@ const messageReducer = (state: MessagePageType = initialState, action: messageAc
                 id: 4,
                 message: state.newMessageState
             };
-            let stateCopy = {...state}
-            stateCopy.messagesData = [...state.messagesData]
-            stateCopy.messagesData.push(newMessage);
-            stateCopy.newMessageState = "";
+            let stateCopy = {...state, messagesData: [...state.messagesData, newMessage],
+                newMessageState: ''}
             return stateCopy;
         }
         case ADD_NEW_TEXT_MESSAGE: {

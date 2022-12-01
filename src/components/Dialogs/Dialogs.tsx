@@ -13,9 +13,9 @@ type PropsType = {
 
 const Dialogs = (props: PropsType) => {
 
-    let dialogsMap = props.messagePage.dialogsData.map(dialog => <DialogItem name={dialog.name} id={dialog.id}/>) //мапим данные для отрисовки
+    let dialogsMap = props.messagePage.dialogsData.map(dialog => <DialogItem key={dialog.id} name={dialog.name} id={dialog.id}/>) //мапим данные для отрисовки
 
-    let messagesMap = props.messagePage.messagesData.map(message => <Message message={message.message}/>) //мапим данные для отрисовки
+    let messagesMap = props.messagePage.messagesData.map(message => <Message key={message.id} message={message.message}/>) //мапим данные для отрисовки
     let newMessageState = props.messagePage.newMessageState
     // let newMessageElement = React.createRef<HTMLTextAreaElement>(); //ссылка для textarea
 
