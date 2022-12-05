@@ -9,6 +9,7 @@ import {FC} from "react";
 import {messageActionType} from "./redux/messageReducer";
 import {profileActionType} from "./redux/profileReducer";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import Users from "./components/Users/Users";
 
 
 type PropsType = {
@@ -30,6 +31,9 @@ const App = () => {
 
                     <Route path='/profile'
                            render={() => <Profile />}/>
+
+                    <Route path='/users'
+                           render={() => <Users/>}/>
 
                 </div>
             </div>
