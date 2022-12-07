@@ -9,6 +9,7 @@ let initialState = {
     users: [
         {
             id: 1,
+            photoURL: 'https://static.wikia.nocookie.net/coolyoutubers/images/1/18/Ikakprosto-1.jpg/revision/latest/top-crop/width/360/height/360?cb=20210320205509&path-prefix=ru',
             followed: false,
             fullName: "Dmitry",
             status: 'I am looking for a job right now...',
@@ -16,6 +17,7 @@ let initialState = {
         },
         {
             id: 2,
+            photoURL: 'https://static.wikia.nocookie.net/coolyoutubers/images/1/18/Ikakprosto-1.jpg/revision/latest/top-crop/width/360/height/360?cb=20210320205509&path-prefix=ru',
             followed: true,
             fullName: "Alex",
             status: 'I am boss',
@@ -23,6 +25,7 @@ let initialState = {
         },
         {
             id: 3,
+            photoURL: 'https://static.wikia.nocookie.net/coolyoutubers/images/1/18/Ikakprosto-1.jpg/revision/latest/top-crop/width/360/height/360?cb=20210320205509&path-prefix=ru',
             followed: false,
             fullName: "Petr",
             status: 'I am job',
