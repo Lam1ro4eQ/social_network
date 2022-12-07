@@ -2,30 +2,67 @@ import {PostsDataType, ProfilePageType, rootActionType} from "./store";
 
 const FOLLOW = "FOLLOW"
 const UNFOLLOW = "UNFOLLOW"
+const SET_USERS = "SETUSERS"
 export type profileActionType = ReturnType<typeof addPostActionCreator> | ReturnType<typeof addNewTextActionCreator>
 
 let initialState = {
     users: [
-        {id: 1, followed: false, fullName: "Dmitry", status: 'I am looking for a job right now...', location:{city: 'Mins', country: 'Belarus'}},
-        {id: 2, followed: true, fullName: "Alex", status: 'I am boss', location:{city: 'Moskow', country: 'Russia'}},
-        {id: 3, followed: false, fullName: "Petr", status: 'I am job', location:{city: 'Kiev', country: 'Ukraine'}},
+        {
+            id: 1,
+            followed: false,
+            fullName: "Dmitry",
+            status: 'I am looking for a job right now...',
+            location: {city: 'Mins', country: 'Belarus'}
+        },
+        {
+            id: 2,
+            followed: true,
+            fullName: "Alex",
+            status: 'I am boss',
+            location: {city: 'Moskow', country: 'Russia'}
+        },
+        {
+            id: 3,
+            followed: false,
+            fullName: "Petr",
+            status: 'I am job',
+            location: {city: 'Kiev', country: 'Ukraine'}
+        },
     ]
 }
 
-const usersReducer = (state: ProfilePageType = initialState, action: profileActionType) => {
+export const usersReducer = (state: ProfilePageType = initialState, action: profileActionType) => {
 
     switch (action.type) {
         case FOLLOW:
-
+            return {
+                ...state, users:state.users.map(u => {
+                    if (u.id === action.userId) {
+                        return {...u, followed: true}
+                    }
+                    return u;
+                })
+            }
         case UNFOLLOW:
-        default:
-            return state;
-    }
+                default:
+                    return {
+                        ...state, users:state.users.map(u => {
+                            if (u.id === action.userId) {
+                                return {...u, followed: false}
+                            }
+                            return u;
+                        })
+                    };
+        case SET_USERS:
+            return {...state, users: [state.users, ...action.users]}
+
+}
 
 
 }
-export const followACr = (useId) => ({type: FOLLOW, useId} as const)
-export const unfollowAC = (useId) => ({type: UNFOLLOW, useId} as const)
+export const followAC = (useId) => ({type: FOLLOW, userId} as const)
+export const unfollowAC = (useId) => ({type: UNFOLLOW, userId} as const)
+export const setUsersAC = (users) => ({type: SET_USERS, users} as const)
 
 // if (action.type === ADD_POST) {
 //     let newPost: PostsDataType = {

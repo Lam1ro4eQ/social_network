@@ -8,7 +8,8 @@ import profileReducer from "./profileReducer";
 
 let rootReduser = combineReducers({
     messagePage: messageReducer,
-    profilePage: profileReducer
+    profilePage: profileReducer,
+    usersPage: usersReduser
 });
 
 
