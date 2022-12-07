@@ -1,6 +1,7 @@
 import {combineReducers, legacy_createStore as createStore} from "redux";
 import messageReducer from "./messageReducer";
 import profileReducer from "./profileReducer";
+import usersReducer from "./usersReducer";
 
 
 
@@ -9,10 +10,10 @@ import profileReducer from "./profileReducer";
 let rootReduser = combineReducers({
     messagePage: messageReducer,
     profilePage: profileReducer,
-    usersPage: usersReduser
+    usersPage: usersReducer
 });
 
 
-export type AppStateType = ReturnType<typeof rootReduser>
+export type AppStateType = ReturnType<typeof rootReduser> //ReturnType - типизирует возвращаемый тип, typeof - типизирует функцию или объект
 
 export const store = createStore(rootReduser);

@@ -10,7 +10,8 @@ import {messageActionType} from "./redux/messageReducer";
 import {profileActionType} from "./redux/profileReducer";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import Users from "./components/Users/Users";
-import UsersContainer from "./components/Users/UsersContainer";
+import {UsersContainer} from "./components/Users/UsersContainer";
+
 
 
 type PropsType = {
