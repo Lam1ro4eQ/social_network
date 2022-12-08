@@ -14,6 +14,6 @@ let rootReduser = combineReducers({
 });
 
 
-export type AppStateType = ReturnType<typeof rootReduser> //ReturnType - типизирует возвращаемый тип, typeof - типизирует функцию или объект
+export type AppStateType = ReturnType<typeof rootReduser> //ReturnType - типизирует возвращаемое значение- тип, typeof - типизирует функцию или объект
 
 export const store = createStore(rootReduser);

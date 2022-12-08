@@ -4,11 +4,11 @@ import messageReducer, {messageActionType} from "./messageReducer";
 import profileReducer, {profileActionType} from "./profileReducer";
 //import {rerenderEntiretree} from "../index";
 
-export type MessagesDataType = {
+type MessagesDataType = {
     id: number
     message: string
 }
-export type DialogsDataType = {
+type DialogsDataType = {
     id: number
     name: string
 }
