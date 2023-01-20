@@ -15,11 +15,15 @@ export type UserLocationType = {
 
 export type UserType = {
     id: number
-    photoURL: string
+    photos: PhotosType
     followed: boolean
-    fullName: string
+    name: string
     status: string
     location: UserLocationType
+}
+export type PhotosType = {
+    small:string
+    large:string
 }
 
 export type InitialStateType = {

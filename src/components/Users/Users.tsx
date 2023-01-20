@@ -2,10 +2,10 @@ import React, {FC} from 'react';
 import styles from './users.module.css';
 import {UsersPropsType} from "./UsersContainer";
 import {UserType} from "../../redux/usersReducer";
-import * as axios from "axios";
+import axios from "axios";
 import userPhoto from "../../../src/assets/images/pngAvatar.png"
 
-export function Users (props: UsersPropsType)  {
+export function Users(props: UsersPropsType) {
     let getUsers = () => {
         if (props.usersPage.users.length === 0) {
 
@@ -45,9 +45,9 @@ export function Users (props: UsersPropsType)  {
 
     return (
 
-    <div>
-        <button onClick={getUsers}>Get Users</button>
-        {props.usersPage.users.map(u => <div key={u.id}>
+        <div>
+            <button onClick={getUsers}>Get Users</button>
+            {props.usersPage.users.map(u => <div key={u.id}>
             <span>
                 <div>
                     <img src={u.photos.small ? u.photos.small : userPhoto} className={styles.userPhoto}/>
@@ -60,20 +60,20 @@ export function Users (props: UsersPropsType)  {
                     }}>Follow</button>}
                 </div>
             </span>
+                    <span>
                 <span>
-                <span>
-                    <div>{u.fullName}</div>
+                    <div>{u.name}</div>
                     <div>{u.status}</div>
                 </span>
                 <span>
-                    <div>{u.location.city}</div>
-                    <div>{u.location.country}</div>
+                    <div>{'u.location.city'}</div>
+                    <div>{'u.location.country'}</div>
                 </span>
 
             </span>
-            </div>
-        )}
-    </div>
+                </div>
+            )}
+        </div>
     )
 }
 
