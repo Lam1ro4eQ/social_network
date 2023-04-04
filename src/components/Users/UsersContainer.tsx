@@ -14,6 +14,7 @@ import {Dispatch} from "redux";
 import {AppStateType} from "../../redux/redux-store";
 import axios from "axios";
 import Users from "./Users";
+import Preloader from "../common/Preloader/Preloader";
 
 type MapStatePropsType = {
     usersPage: InitialStateType
@@ -56,7 +57,9 @@ class UsersAPIContainer extends React.Component<UsersAPIComponentPropsType> {
 
     render() {
         return <>
-            {this.props.isFetching ? <img src={preloader}/> : null}
+            {this.props.isFetching ? <Preloader
+                isFetching={this.props.isFetching}
+            /> : null}
             <Users totalUsersCount={this.props.totalUsersCount}
                    pageSize={this.props.pageSize}
                    currentPage={this.props.currentPage}
