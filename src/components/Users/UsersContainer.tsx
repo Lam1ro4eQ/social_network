@@ -10,7 +10,6 @@ import {
     UserLocationType,
     UserType
 } from "../../redux/usersReducer";
-import {Dispatch} from "redux";
 import {AppStateType} from "../../redux/redux-store";
 import axios from "axios";
 import Users from "./Users";

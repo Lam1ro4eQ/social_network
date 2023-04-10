@@ -1,10 +1,46 @@
-import {PostsDataType, ProfilePageType, rootActionType} from "./store";
-
 const ADD_NEW_TEXT = "ADD-NEW-TEXT"
 const ADD_POST = "ADD-POST"
 const SET_USER_PROFILE = "SET-USER-PROFILE"
 
 export type profileActionType = ReturnType<typeof addPostActionCreator> | ReturnType<typeof addNewTextActionCreator> | ReturnType<typeof setUserProfile>
+
+export type ProfileType = {
+    aboutMe: string
+    contacts: ContactType
+    lookingForAJob: boolean
+    lookingForAJobDescription: string
+    fullName: string
+    userId: number
+    photos: PhotosType
+}
+
+type PhotosType = {
+    small: string
+    large: string
+}
+
+type ContactType = {
+    facebook: string
+    website: string
+    vk: string
+    twitter: string
+    instagram: string
+    youtube: string
+    github: string
+    mainLink: string
+}
+
+type PostsDataType = {
+    id: number
+    message: string
+    likesCount: number
+}
+
+type initialStateType = {
+    postsData: Array<PostsDataType>
+    newPostState: string
+    profile: ProfileType | null
+}
 
 let initialState = {
     postsData: [
@@ -12,10 +48,10 @@ let initialState = {
         {id: 2, message: "Hi how are you", likesCount: 11}
     ],
     newPostState: "",
-    profile:null
+    profile: null
 }
 
-const profileReducer = (state: ProfilePageType = initialState, action: profileActionType) => {
+const profileReducer = (state: initialStateType = initialState, action: profileActionType) => {
 
     switch (action.type) {
         case ADD_POST: {
@@ -41,7 +77,7 @@ const profileReducer = (state: ProfilePageType = initialState, action: profileAc
 }
 export const addNewTextActionCreator = (text: string) => ({type: ADD_NEW_TEXT, newText: text} as const)
 export const addPostActionCreator = () => ({type: ADD_POST} as const)
-export const setUserProfile = (profile:any) => ({type: SET_USER_PROFILE, profile} as const)
+export const setUserProfile = (profile:ProfileType) => ({type: SET_USER_PROFILE, profile} as const)
 
 
 export default profileReducer;
