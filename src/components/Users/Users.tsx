@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import styles from './users.module.css';
 import userPhoto from "../../../src/assets/images/pngAvatar.png"
 import {InitialStateType, UserType} from "../../redux/usersReducer";
+import { NavLink } from 'react-router-dom';
 
 type UsersPropsType = {
     usersPage: InitialStateType
@@ -25,9 +26,9 @@ let Users = (props: UsersPropsType) => {
     }
 
     let curP = props.currentPage;
-    let curPF = ((curP - 5) < 0) ?  0  : curP - 5 ;
+    let curPF = ((curP - 5) < 0) ? 0 : curP - 5;
     let curPL = curP + 5;
-    let slicedPages = pages.slice( curPF, curPL);  //Карусель массива номеров страниц
+    let slicedPages = pages.slice(curPF, curPL);  //Карусель массива номеров страниц
 
     return (
         <div>
@@ -44,7 +45,9 @@ let Users = (props: UsersPropsType) => {
             {props.usersPage.users.map(u => <div key={u.id}>
             <span>
                 <div>
-                    <img src={u.photos.small ? u.photos.small : userPhoto} className={styles.userPhoto}/>
+                    <NavLink to={'/profile/' + u.id}>
+                        <img src={u.photos.small ? u.photos.small : userPhoto} className={styles.userPhoto}/>
+                    </NavLink>
                 </div>
                 <div>
                     {u.followed ? <button onClick={() => {
