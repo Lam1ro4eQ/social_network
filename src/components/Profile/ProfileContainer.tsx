@@ -14,7 +14,7 @@ type MapDispatchPropsType = {
     setUserProfile: (profile:ProfileType) => void
 }
 
-type ProfileApiContainerType = MapDispatchPropsType & MapStatePropsType
+export type ProfileApiContainerType = MapDispatchPropsType & MapStatePropsType
 
 class ProfileApiContainer extends React.Component<ProfileApiContainerType> {
 
@@ -27,7 +27,7 @@ class ProfileApiContainer extends React.Component<ProfileApiContainerType> {
     render() {
         return (
             <div>
-                <Profile profile={this.props.profile}/>
+                <Profile {...this.props}/>
             </div>
         )
     }
