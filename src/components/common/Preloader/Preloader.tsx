@@ -1,8 +1,8 @@
 import preloader from "../../../assets/images/preloader.svg";
 import React from "react";
 
-type PreloaderType = {
-    isFetching: boolean
+export type PreloaderType = {
+    isFetching?: boolean
 }
 
 let Preloader = (props: PreloaderType) => {

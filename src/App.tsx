@@ -13,8 +13,6 @@ import {ProfileContainer} from "./components/Profile/ProfileContainer";
 
 type PropsType = {
     store: AppStateType
-    //addPost: () => void
-    //addNewText: (textMessage: string) => void
     dispatch?: (action: messageActionType | profileActionType) => void
 }
 const App = () => {
@@ -28,7 +26,7 @@ const App = () => {
                     <Route path='/dialogs'
                            render={() => <DialogsContainer />}/>
 
-                    <Route path='/profile'
+                    <Route path='/profile/:userId'
                            render={() => <ProfileContainer />}/>
 
                     <Route path='/users'
