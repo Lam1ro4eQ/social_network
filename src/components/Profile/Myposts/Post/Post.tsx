@@ -1,5 +1,6 @@
 import React from "react";
 import p from "./Post.module.css"
+import pngAvatar from "../../../../assets/images/pngAvatar.png"
 
 type PropsType = {
     message: string
@@ -9,7 +10,7 @@ type PropsType = {
 const Post = (props: PropsType) => {
     return (
                 <div className={p.item}>
-                    <img src='https://lumpics.ru/wp-content/uploads/2017/11/Programmyi-dlya-sozdaniya-avatarok.png'/>
+                    <img src={pngAvatar}/>
                     {props.message}
                     <div>
                         <span>like {props.likesCount}</span>
