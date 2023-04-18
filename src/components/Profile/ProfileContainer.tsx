@@ -15,7 +15,7 @@ type MapDispatchPropsType = {
     setUserProfile: (profile: ProfileType) => void
 }
 
-export type ProfileApiContainerType = MapDispatchPropsType & MapStatePropsType
+type ProfileApiContainerType = MapDispatchPropsType & MapStatePropsType
 
 
 const ProfileApiContainer = (props: ProfileApiContainerType) => {
@@ -35,6 +35,16 @@ const ProfileApiContainer = (props: ProfileApiContainerType) => {
         </div>
     )
 
+<<<<<<< HEAD
+=======
+    render() {
+        return (
+            <div>
+                <Profile profile={this.props.profile}/>
+            </div>
+        )
+    }
+>>>>>>> parent of 1a670bf (user description, profileContainer)
 }
 
 let mapStateToProps = (state: AppStateType): MapStatePropsType => ({

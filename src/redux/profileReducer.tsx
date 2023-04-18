@@ -4,28 +4,6 @@ const SET_USER_PROFILE = "SET-USER-PROFILE"
 
 export type profileActionType = ReturnType<typeof addPostActionCreator> | ReturnType<typeof addNewTextActionCreator> | ReturnType<typeof setUserProfile>
 
-export type PhotosType = {
-    small: string
-    large: string
-}
-
-export type ContactType = {
-    facebook: string
-    website: string
-    vk: string
-    twitter: string
-    instagram: string
-    youtube: string
-    github: string
-    mainLink: string
-}
-
-export type PostsDataType = {
-    id: number
-    message: string
-    likesCount: number
-}
-
 export type ProfileType = {
     aboutMe: string
     contacts: ContactType
@@ -36,7 +14,29 @@ export type ProfileType = {
     photos: PhotosType
 }
 
-export type initialStateType = {
+type PhotosType = {
+    small: string
+    large: string
+}
+
+type ContactType = {
+    facebook: string
+    website: string
+    vk: string
+    twitter: string
+    instagram: string
+    youtube: string
+    github: string
+    mainLink: string
+}
+
+type PostsDataType = {
+    id: number
+    message: string
+    likesCount: number
+}
+
+type initialStateType = {
     postsData: Array<PostsDataType>
     newPostState: string
     profile: ProfileType | null

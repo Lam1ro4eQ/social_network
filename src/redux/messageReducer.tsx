@@ -1,3 +1,4 @@
+import state, {MessagePageType} from "./store";
 
 const ADD_MESSAGE = "ADD-MESSAGE"
 const ADD_NEW_TEXT_MESSAGE = "ADD-NEW-TEXT-MESSAGE"
