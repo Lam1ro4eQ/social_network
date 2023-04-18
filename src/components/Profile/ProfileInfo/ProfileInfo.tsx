@@ -1,6 +1,5 @@
 import React from "react";
 import pi from "./ProfileInfo.module.css"
-<<<<<<< HEAD
 import {initialStateType, PostsDataType, ProfileType} from "../../../redux/profileReducer";
 import Preloader from "../../common/Preloader/Preloader";
 
@@ -15,13 +14,10 @@ const ProfileInfo: React.FC<ProfileInfoProps> = (props) => {
             <Preloader/>
         </>
     }
-=======
 
->>>>>>> parent of 1a670bf (user description, profileContainer)
-
-const ProfileInfo = () => {
     return (
         <div className={pi.descriptionBlock}>
+            <img src={props.profile?.photos?.large}/>
             ava + description
         </div>
     )

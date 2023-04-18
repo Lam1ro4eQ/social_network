@@ -1,24 +1,24 @@
 import React from "react";
 import p from "./Profile.module.css"
-import MyPost from "./Myposts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import pi from "./ProfileInfo/ProfileInfo.module.css";
-import {AppStateType} from "../../redux/redux-store";
-import MyPosts from "./Myposts/MyPosts";
-import {profileActionType} from "../../redux/profileReducer";
+import {initialStateType, PostsDataType, ProfileType} from "../../redux/profileReducer";
 import MyPostsContainer from "./Myposts/MyPostsContainer";
+import {ProfileApiContainerType} from "./ProfileContainer";
 
-type PropsType = {
-    store: AppStateType
+type StatePropsType = {
+    postsData: Array<PostsDataType>
+    newPostState: string
+    profile: ProfileType | null
 }
 
-const Profile = () => {
+const Profile = (props:ProfileApiContainerType) => {
     return (
         <div className={p.content}>
             <div>
                 <img className={pi.bgImg} src="https://cdn.promodj.com/afs/f74a72ad339d46cd7bb803582aec8d3912:d3f046"/>
             </div>
-            <ProfileInfo/>
+            <ProfileInfo profile={props.profile}/>
             <MyPostsContainer />
         </div>
     )
